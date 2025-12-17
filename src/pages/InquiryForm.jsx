@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Reveal } from '../components/Reveal';
+import { Reveal } from '../components/reveal';
 
 export const Inquiry = ({ isDarkMode }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -12,7 +12,7 @@ export const Inquiry = ({ isDarkMode }) => {
     vision: '' // Captured questions/details
   });
 
-  const YOUR_PHONE_NUMBER = "254700000000"; // Replace with your number
+  const YOUR_PHONE_NUMBER = "254716700151"; // Replace with your number
 
   const handleSubmit = (e) => {
     e.preventDefault();
