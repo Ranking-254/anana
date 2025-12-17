@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Default "Bakery Cream" Palette */
+  --color-bakery-cream: #FDF5E6;
+  --color-bakery-sage: #4A5D4E;
+  --color-bakery-crust: #5C4033;
+  --color-bakery-clay: #D2B48C;
+
+  /* "Luxury Dark" Palette (Activated via .dark class) */
+  --color-dark-bg: #1A1D1E;
+  --color-dark-text: #F9F6F1;
+  --color-dark-accent: #D4AF37;
+}
+
+@layer base {
+  body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: var(--color-bakery-cream);
+    color: var(--color-bakery-crust);
+  }
+
+  /* When the .dark class is active, override the colors */
+  .dark body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+  }
+
+  /* Your Grain Overlay Logic */
+  .grain-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 150px;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+  }
+  
+  .dark .grain-overlay {
+    mix-blend-mode: overlay;
+    opacity: 0.08;
+  }
+}
