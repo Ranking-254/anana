@@ -5,7 +5,7 @@ import{  BsWhatsapp,BsTiktok } from 'react-icons/bs';
 
 export const Footer = ({ onOpenLegal }) => {
   return (
-    <footer className="bg-bakery-crust py-24 px-12 md:px-24 text-bakery-cream rounded-t-[4rem] rounded-b-[4rem]">
+    <footer className="bg-bakery-crust py-24 px-12 md:px-24 text-bakery-cream rounded-t-[4rem]">
       <div className="flex flex-col md:flex-row justify-between items-start gap-12">
         {/* Brand & Contact Info */}
         <div className="max-w-sm text-left">

@@ -2,30 +2,14 @@ import { motion } from 'framer-motion';
 import { Reveal } from './reveal';
 
 const specials = [
-  { 
-    id: '01', 
-    title: 'Strawberry Bliss', 
-    desc: 'Fresh local berries & cream',
-    image: '/images/img1.webp' // Path to your public folder
-  },
-  { 
-    id: '02', 
-    title: 'Butter Croissant', 
-    desc: '36hr fermented French butter',
-    image: '/images/img2.webp'
-  },
-  { 
-    id: '03', 
-    title: 'Lemon Zesty', 
-    desc: 'Tart curd with toasted meringue',
-    image: '/images/img3.webp'
-  },
-  { 
-    id: '04', 
-    title: 'Chocolate Fudge', 
-    desc: 'Rich ganache & dark chocolate',
-    image: '/images/img4.webp'
-  },  
+  { id: '01', title: 'Strawberry Bliss', desc: 'Fresh local berries & cream', image: '/images/img1.webp' },
+  { id: '02', title: 'Butter Croissant', desc: '36hr fermented French butter', image: '/images/img4.webp' },
+  { id: '03', title: 'Lemon Zesty', desc: 'Tart curd with toasted meringue', image: '/images/img3.webp' },
+  { id: '04', title: 'Chocolate Fudge', desc: 'Rich ganache & dark chocolate', image: '/images/img2.webp' },  
+  { id: '05', title: 'Black Forest', desc: 'Cherries & whipped cream', image: '/images/img5.webp'},
+  { id: '06', title: 'Cinnamon Roll', desc: 'Glazed with cream cheese icing', image: '/images/img6.webp'},
+  { id: '07', title: 'Almond Croissant', desc: 'Filled with almond frangipane', image: '/images/img7.webp'},
+  { id: '08', title: 'Tiramisu Slice', desc: 'Coffee-soaked ladyfingers', image: '/images/img8.webp'}, 
 ];
 
 export const SpecialsSlider = () => (
@@ -36,24 +20,29 @@ export const SpecialsSlider = () => (
       </h2>
     </Reveal>
 
-    <div className="flex flex-nowrap md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8">
+    {/* FIX: Removed md:grid and md:grid-cols-3. 
+       md:flex-row ensures they stay in a line on desktop.
+       md:overflow-x-visible allows you to see them all if they fit, 
+       or you can keep overflow-x-auto to scroll on desktop too.
+    */}
+    <div className="flex flex-nowrap gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8">
       {specials.map((item) => (
         <motion.div 
           key={item.id}
-          className="min-w-[85vw] md:min-w-0 snap-center group relative aspect-[4/5] bg-bakery-crust/5 dark:bg-white/5 rounded-[2rem] p-8 flex flex-col justify-end overflow-hidden"
+          /* md:min-w-[calc(33.333%-1rem)]: This makes exactly 3 cards fit on desktop 
+             while still being part of the flex row.
+          */
+          className="min-w-[85vw] md:min-w-[calc(33.333%-1rem)] snap-center group relative aspect-[4/5] bg-bakery-crust/5 dark:bg-white/5 rounded-[2rem] p-8 flex flex-col justify-end overflow-hidden"
         >
-          {/* FIX: The Image Layer */}
           <div className="absolute inset-0 z-0">
             <img 
               src={item.image} 
               alt={item.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
             />
-            {/* Gradient Overlay to make text readable */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           </div>
 
-          {/* Subtle Numbering */}
           <span className="absolute top-8 left-8 font-mono text-[10px] text-white opacity-50 z-10">
             {item.id}
           </span>
