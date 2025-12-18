@@ -42,4 +42,17 @@
     mix-blend-mode: overlay;
     opacity: 0.08;
   }
+  @media (pointer: coarse) {
+  .custom-cursor { display: none !important; }
+}
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 }

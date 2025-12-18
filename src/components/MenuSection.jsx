@@ -11,7 +11,9 @@ export const MenuSection = () => (
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-700" />
             <div className="absolute bottom-16 left-16 text-white">
-               <h3 className="text-6xl font-serif italic mb-4">Signature Chocolate</h3>
+              <h3 className="text-3xl md:text-6xl font-serif italic mb-4">
+  Signature Chocolate
+</h3>
                <span className="font-mono uppercase text-[10px] tracking-widest bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
                  Inquire for Custom Order
                </span>

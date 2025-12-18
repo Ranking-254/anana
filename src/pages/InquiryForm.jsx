@@ -56,9 +56,9 @@ export const Inquiry = ({ isDarkMode }) => {
               exit={{ opacity: 0, y: -20 }}
             >
               <Reveal>
-                <h2 className="text-7xl font-serif mb-12 italic text-center leading-tight">
-                  Begin Your <br /> Consultation
-                </h2>
+                <h2 className="text-4xl md:text-7xl font-serif mb-12 italic text-center leading-tight">
+                   Begin Your <br /> Consultation
+               </h2>
               </Reveal>
 
               <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-20 font-mono text-[10px] uppercase tracking-[0.3em]">

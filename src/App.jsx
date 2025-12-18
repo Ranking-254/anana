@@ -22,7 +22,6 @@ const pageVariants = {
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOrderOpen, setIsOrderOpen] = useState(false); 
-  // NEW: Legal visibility state
   const [isLegalOpen, setIsLegalOpen] = useState(false);
   const [cursorType, setCursorType] = useState("default");
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -30,9 +29,18 @@ function App() {
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <div className={`relative min-h-screen transition-colors duration-500 ${isDarkMode ? 'dark bg-dark-bg text-dark-text' : 'bg-bakery-cream text-bakery-crust'}`}>
+    /* FIX 1: overflow-x-hidden prevents content from bleeding off the right side.
+      FIX 2: w-screen ensures the container never exceeds the device width.
+    */
+    <div className={`relative min-h-screen w-full overflow-x-hidden transition-colors duration-500 ${
+      isDarkMode ? 'dark bg-dark-bg text-dark-text' : 'bg-bakery-cream text-bakery-crust'
+    }`}>
       
       <div className="grain-overlay" />
+      
+      {/* FIX 3: CustomCursor is usually hidden on mobile via CSS 
+        to prevent 'ghost' touches interfering with clicks. 
+      */}
       <CustomCursor cursorType={cursorType} />
 
       <Navbar 
@@ -51,9 +59,13 @@ function App() {
           animate="animate"
           exit="exit"
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          /* FIX 4: Ensure main content stays centered and padded on mobile */
+          className="w-full flex flex-col"
         >
           <Hero onOpenOrder={() => setIsOrderOpen(true)} setCursorType={setCursorType} />
+          
           <WhyChooseUs /> 
+          
           <SpecialsSlider />
           
           <div onMouseEnter={() => setCursorType("view")} onMouseLeave={() => setCursorType("default")}>
@@ -65,12 +77,9 @@ function App() {
         </motion.main>
       </AnimatePresence>
 
-      {/* Pass the toggle function to the Footer */}
       <Footer onOpenLegal={() => setIsLegalOpen(true)} />
       
-      {/* Legal Overlay - now sits outside main content */}
       <Legal isOpen={isLegalOpen} onClose={() => setIsLegalOpen(false)} />
-
       <SubscriptionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <OrderForm isOpen={isOrderOpen} onClose={() => setIsOrderOpen(false)} />
     </div>

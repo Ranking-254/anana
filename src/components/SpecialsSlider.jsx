@@ -1,37 +1,71 @@
-// src/components/SpecialsSlider.jsx
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { motion } from 'framer-motion';
+import { Reveal } from './reveal';
 
-export const SpecialsSlider = () => {
-  // This ref must be on a container with non-static position
-  const targetRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    // offset defines when the animation starts/ends relative to the viewport
-    offset: ["start end", "end start"] 
-  });
+const specials = [
+  { 
+    id: '01', 
+    title: 'Strawberry Bliss', 
+    desc: 'Fresh local berries & cream',
+    image: '/images/img1.webp' // Path to your public folder
+  },
+  { 
+    id: '02', 
+    title: 'Butter Croissant', 
+    desc: '36hr fermented French butter',
+    image: '/images/img2.webp'
+  },
+  { 
+    id: '03', 
+    title: 'Lemon Zesty', 
+    desc: 'Tart curd with toasted meringue',
+    image: '/images/img3.webp'
+  },
+  { 
+    id: '04', 
+    title: 'Chocolate Fudge', 
+    desc: 'Rich ganache & dark chocolate',
+    image: '/images/img4.webp'
+  },  
+];
 
-  // map scroll progress to horizontal movement
-  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-70%"]);
+export const SpecialsSlider = () => (
+  <section className="py-24 px-6 md:px-24 overflow-hidden">
+    <Reveal>
+      <h2 className="text-4xl md:text-7xl font-serif italic mb-16 text-bakery-crust dark:text-dark-text">
+        Chef's Specials
+      </h2>
+    </Reveal>
 
-  return (
-    /* The main container now has 'relative' positioning to satisfy the warning */
-    <section ref={targetRef} className="relative h-[300vh] bg-bakery-crust">
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-12 px-24">
-          {['Strawberry bliss', 'Butter Croissant', 'Lemmon Zesty', 'Black Forest'].map((item, i) => (
-            <div 
-              key={i} 
-              className="group relative h-[450px] w-[350px] flex-shrink-0 bg-bakery-cream/10 rounded-[3rem] p-12 overflow-hidden border border-white/10"
-            >
-              <span className="text-bakery-cream font-mono text-sm opacity-50">0{i + 1}</span>
-              <h3 className="text-5xl font-serif text-bakery-cream mt-4 leading-tight">{item}</h3>
-              <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-bakery-sage blur-[100px] opacity-0 group-hover:opacity-40 transition-opacity" />
-            </div>
-          ))}
+    <div className="flex flex-nowrap md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8">
+      {specials.map((item) => (
+        <motion.div 
+          key={item.id}
+          className="min-w-[85vw] md:min-w-0 snap-center group relative aspect-[4/5] bg-bakery-crust/5 dark:bg-white/5 rounded-[2rem] p-8 flex flex-col justify-end overflow-hidden"
+        >
+          {/* FIX: The Image Layer */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={item.image} 
+              alt={item.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+            />
+            {/* Gradient Overlay to make text readable */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          </div>
+
+          {/* Subtle Numbering */}
+          <span className="absolute top-8 left-8 font-mono text-[10px] text-white opacity-50 z-10">
+            {item.id}
+          </span>
+          
+          <div className="relative z-10 text-white">
+            <h3 className="text-3xl md:text-4xl font-serif italic mb-2">{item.title}</h3>
+            <p className="font-mono text-[8px] uppercase tracking-widest opacity-80">
+              {item.desc}
+            </p>
+          </div>
         </motion.div>
-      </div>
-    </section>
-  );
-};
+      ))}
+    </div>
+  </section>
+);
