@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import { Reveal } from './reveal';
 
 const specials = [
-  { id: '01', title: 'Strawberry Bliss', desc: 'Fresh local berries & cream', image: '/images/img1.webp' },
-  { id: '02', title: 'Butter Croissant', desc: '36hr fermented French butter', image: '/images/img4.webp' },
-  { id: '03', title: 'Lemon Zesty', desc: 'Tart curd with toasted meringue', image: '/images/img3.webp' },
-  { id: '04', title: 'Chocolate Fudge', desc: 'Rich ganache & dark chocolate', image: '/images/img2.webp' },  
-  { id: '05', title: 'Black Forest', desc: 'Cherries & whipped cream', image: '/images/img5.webp'},
-  { id: '06', title: 'Cinnamon Roll', desc: 'Glazed with cream cheese icing', image: '/images/img6.webp'},
-  { id: '07', title: 'Almond Croissant', desc: 'Filled with almond frangipane', image: '/images/img7.webp'},
-  { id: '08', title: 'Tiramisu Slice', desc: 'Coffee-soaked ladyfingers', image: '/images/img8.webp'}, 
+  { id: '01', title: 'Strawberry Bliss', desc: 'Fresh local berries & cream', image: '/images/strawberry.webp' },
+  { id: '02', title: 'Marble Cake', desc: '36hr fermented French butter', image: '/images/img24.jpg' },
+  { id: '03', title: 'Lemon Zesty', desc: 'Tart curd with toasted meringue', image: '/images/lemon.webp' },
+  { id: '04', title: 'Chocolate Fudge', desc: 'Rich ganache & dark chocolate', image: '/images/chocolate.webp' },  
+  { id: '05', title: 'Black Forest', desc: 'Cherries & whipped cream', image: '/images/images.jpeg'},
+  { id: '06', title: 'Cinnamon Roll', desc: 'Glazed with cream cheese icing', image: '/images/cinamon.webp'},
+  { id: '07', title: 'Almond Croissant', desc: 'Filled with almond frangipane', image: '/images/almond.webp'},
+  { id: '08', title: 'Tiramisu Slice', desc: 'Coffee-soaked ladyfingers', image: '/images/tiramisu.webp'}, 
 ];
 
 export const SpecialsSlider = () => (

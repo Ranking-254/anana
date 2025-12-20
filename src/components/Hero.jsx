@@ -59,7 +59,7 @@ export const Hero = ({ onOpenOrder }) => {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="absolute top-24 right-12 w-32 h-32 border border-bakery-crust/10 rounded-full flex items-center justify-center pointer-events-none"
           >
-            <span className="font-mono text-[8px] uppercase tracking-widest opacity-30 "> Hearth  ●  Hearth  ●</span>
+            <span className="font-mono text-[8px] uppercase tracking-widest opacity-30 ">Anana ● Anana ● Anana ●</span>
           </motion.div>
         </div>
 

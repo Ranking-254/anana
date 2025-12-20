@@ -12,8 +12,9 @@ import { OrderForm } from './pages/OrderNow';
 import { Footer } from './components/Footer';
 import { SubscriptionModal } from './components/SubscriptionModal';
 import { Legal } from './pages/legal';
+import {FAQ} from './pages/FAQ';
 
-const pageVariants = {
+ const pageVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 }
@@ -74,6 +75,7 @@ function App() {
           </div>
           
           <Inquiry isDarkMode={isDarkMode} />
+          <FAQ />
         </motion.main>
       </AnimatePresence>
 
@@ -82,6 +84,15 @@ function App() {
       <Legal isOpen={isLegalOpen} onClose={() => setIsLegalOpen(false)} />
       <SubscriptionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <OrderForm isOpen={isOrderOpen} onClose={() => setIsOrderOpen(false)} />
+
+        <SubscriptionModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        onOpenOrder={() => setIsOrderOpen(true)} 
+      />
+
+      <OrderForm isOpen={isOrderOpen} onClose={() => setIsOrderOpen(false)} />
+
     </div>
   );
 }

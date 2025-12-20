@@ -6,16 +6,19 @@ export const MenuSection = () => (
       <div className="md:col-span-7">
         <Reveal width="100%">
           <a href="#inquiry" className="block aspect-[4/5] rounded-[3.5rem] overflow-hidden relative group cursor-pointer shadow-2xl">
-            <div 
-              className="w-full h-full bg-[url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center"
-            />
+           <img
+  src="/images/img24.jpg"
+  alt="Signature Chocolate"
+  className="w-full h-full object-contain object-center"
+  loading="eager"
+/>
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-700" />
             <div className="absolute bottom-16 left-16 text-white">
               <h3 className="text-3xl md:text-6xl font-serif italic mb-4">
   Signature Chocolate
 </h3>
                <span className="font-mono uppercase text-[10px] tracking-widest bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
-                 Inquire for Custom Order
+                 Make Custom Order
                </span>
             </div>
           </a>

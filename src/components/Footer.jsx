@@ -15,7 +15,7 @@ export const Footer = ({ onOpenLegal }) => {
             viewport={{ once: true }}
             className="text-5xl font-serif italic mb-8"
           >
-            Visit the Hearth.
+            Visit ANANA-Bakers.
           </motion.h5>
           <div className="space-y-4 font-mono text-[10px] uppercase tracking-[0.2em] leading-loose opacity-60">
             <p>Runyenjes, Embu</p>
@@ -89,13 +89,16 @@ export const Footer = ({ onOpenLegal }) => {
 
       {/* Bottom Copyright Row */}
       <div className="mt-24 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 font-mono text-[8px] uppercase tracking-[0.4em] opacity-40 text-center md:text-left">
-        <span>© 2025 Hearth Cake Studio</span>
+        <span>© 2025 ANANA-BACKERS.</span>
         <div className="flex gap-8">
           <span>Sculpted with patience</span>
           <span className="hidden md:inline">●</span>
           <span>Naturally Crafted</span>
         </div>
       </div>
+      <div className="mt-24 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 font-mono text-[8px] uppercase tracking-[0.4em] opacity-40 text-center md:text-left">
+      built by<a href="https://pattin-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Pattin</a> 
+       </div>
     </footer>
   );
 };

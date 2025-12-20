@@ -37,7 +37,7 @@ export const OrderForm = ({ isOpen, onClose }) => {
              Added 'text-current' so it inherits from App.jsx theme colors.
              Added 'bg-inherit' or standard theme bg.
           */
-          className="fixed inset-0 z-[110] bg-bakery-cream dark:bg-dark-bg text-bakery-crust dark:text-dark-text p-8 md:p-12 flex flex-col items-center justify-center transition-colors duration-500"
+          className="fixed inset-0 z-[110] bg-bakery-cream dark:bg-dark-bg text-bakery-crust dark:text-dark-accent p-8 md:p-12 flex flex-col items-center justify-center transition-colors duration-500"
         >
           <button 
             onClick={onClose} 
@@ -47,8 +47,8 @@ export const OrderForm = ({ isOpen, onClose }) => {
           </button>
           
           <div className="max-w-xl w-full">
-            <h2 className="text-5xl font-serif italic mb-12 text-center">Place Your Order</h2>
-            
+            <h2 className="text-4xl md:text-5xl tracking-tight font-serif italic mb-12 text-center">Place your Order</h2>
+
             <form onSubmit={handleWhatsAppOrder} className="space-y-8 font-mono text-[10px] uppercase tracking-[0.2em]">
               
               {/* Full Name */}

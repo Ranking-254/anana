@@ -9,7 +9,7 @@ export const Navbar = ({
   onToggleTheme 
 }) => (
   <nav className="fixed top-0 w-full z-50 p-4 md:p-8 flex justify-between items-center mix-blend-difference text-bakery-cream transition-all duration-300">
-    <div className="text-xl md:text-2xl font-black tracking-tighter uppercase cursor-default">Hearth.</div>
+    <div className="text-xl md:text-2xl font-black tracking-tighter uppercase cursor-default">Anana.</div>
     
     <div className="flex items-center gap-4 md:gap-10">
       {/* FIX: Removed 'hidden' so links show on mobile. 

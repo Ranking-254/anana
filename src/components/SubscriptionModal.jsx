@@ -15,12 +15,12 @@ const modalVariants = {
   exit: { x: "100%", opacity: 0, transition: { ease: "easeInOut" } }
 };
 
-export const SubscriptionModal = ({ isOpen, onClose }) => {
+// FIX: Added onOpenOrder to the props here
+export const SubscriptionModal = ({ isOpen, onClose, onOpenOrder }) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* 1. Dark Overlay */}
           <motion.div
             variants={backdropVariants}
             initial="hidden"
@@ -30,7 +30,6 @@ export const SubscriptionModal = ({ isOpen, onClose }) => {
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
           />
 
-          {/* 2. Sliding Drawer */}
           <motion.div
             variants={modalVariants}
             initial="hidden"
@@ -43,24 +42,30 @@ export const SubscriptionModal = ({ isOpen, onClose }) => {
             </button>
             
             <div className="mt-20">
-              <span className="text-bakery-sage font-mono text-xs uppercase tracking-widest">The Bread Club</span>
-              <h2 className="text-5xl font-serif text-bakery-crust mt-4 leading-tight">Fresh loaves, <br/>delivered weekly.</h2>
+              <span className="text-bakery-sage font-mono text-xs uppercase tracking-widest">The anana-Bakers Club</span>
+              <h2 className="text-5xl font-serif text-bakery-crust mt-4 leading-tight">Fresh Cakes, <br/>delivered weekly.</h2>
               <p className="mt-6 text-bakery-crust/70 leading-relaxed">
-                Join our small-batch subscription. Members get first access to limited seasonal bakes and free Saturday delivery.
+                Join our small-batch subscription. Members get first access to limited seasonal cakes and free Saturday delivery.
               </p>
               
-              <form className="mt-12 space-y-4">
+              {/* Added preventDefault to the form so the page doesn't refresh on click */}
+              <form className="mt-12 space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <input 
                   type="email" 
                   placeholder="your@email.com" 
                   className="w-full bg-transparent border-b border-bakery-crust/20 py-4 focus:outline-none focus:border-bakery-sage transition-colors"
                 />
                 <motion.button 
+                  type="button"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    onOpenOrder(); 
+                    if (onClose) onClose(); 
+                  }}
                   className="w-full bg-bakery-crust text-bakery-cream py-5 rounded-full font-bold uppercase text-xs tracking-widest"
                 >
-                  Join the hearth
+                  Join Anana-backers
                 </motion.button>
               </form>
             </div>
