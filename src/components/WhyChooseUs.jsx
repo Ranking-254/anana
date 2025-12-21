@@ -11,7 +11,7 @@ const reasons = [
 ];
 
 export const WhyChooseUs = () => (
-  <section className="py-32 px-12 md:px-24 text-bakery-cream transition-colors duration-500">
+  <section className="py-32 px-12 md:px-24 text-dark-accent transition-colors duration-500">
     <Reveal>
       <h2 className="text-5xl font-serif italic mb-20 text-center">Why Choose Us</h2>
     </Reveal>
