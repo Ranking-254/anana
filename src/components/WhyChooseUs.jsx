@@ -3,7 +3,7 @@ import { Zap, Heart, Leaf,Palette,Star,ChefHat } from 'lucide-react';
 
 const reasons = [
   { icon: <Leaf />, title: "Premium Ingredients", desc: "We use only the finest ingredients, sourced locally for freshness and quality." },
-  { icon: <Zap />, title: "36hr Ferment", desc: "Patience for complex flavors." },
+  { icon: <Zap />, title: "Customer Service", desc: "We Value each of our Client ." },
   { icon: <Heart />, title: "Hand-Sculpted", desc: "Each cake is a unique commission." },
   { icon: <Palette />, title: "Artisanal Design", desc: "Custom cakes for every occasion." },
   { icon:<Star />, title: "Customer Satisfaction", desc: "Our customers are our family. We go above and beyond to ensure every experience with Hearth Bakers is a delightful one."},

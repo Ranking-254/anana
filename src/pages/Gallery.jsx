@@ -4,7 +4,7 @@ import imga from '../assets/img1.webp';
 import imgb from '../assets/img2.webp';
 import imgc from '../assets/img3.webp';
 import imgd from '../assets/img4.webp';
-import imge from  '../assets/chocolate.webp'
+import imge from  '../assets/im.jpg';
 import imgf from  '../assets/img5.jpg';
 import imgg from '../assets/img6.jpg';
 import imgh from '../assets/img7.jpg';
@@ -55,33 +55,48 @@ const cakePortfolios = [
 
 ];
 
+
 export const Gallery = () => {
   return (
     <div className="pt-32 pb-48 px-8 md:px-24 transition-colors duration-500 ">
       <Reveal>
-        <h2 className="text-7xl font-serif text-bakery-crust mb-16 italic">The Collection</h2>
+        <h2 className="text-5xl md:text-7xl font-serif text-bakery-crust dark:text-dark-text mb-16 italic">
+          The Collection
+        </h2>
       </Reveal>
 
-      {/* Masonry-style Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         {cakePortfolios.map((cake) => (
           <motion.div
             key={cake.id}
             whileHover={{ scale: 0.98 }}
-            className={`${cake.size} relative aspect-[16/10] overflow-hidden rounded-[2.5rem] group cursor-none`}
+            /* FIX: Tumeondoa cursor-none kwa mobile na kuongeza touch-action */
+            className={`${cake.size} relative aspect-[16/10] overflow-hidden rounded-[2.5rem] group md:cursor-none touch-pan-y`}
           >
             <motion.img 
               initial={{ scale: 1.2, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              whileInView={{ scale: 1, opacity: 1 }} // Inaanza ku-animate picha ikionekana
+              viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeOut" }}
               src={cake.img} 
               alt={cake.title}
               className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
             />
             
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-bakery-crust/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-              <p className="text-bakery-cream font-serif text-3xl italic">{cake.title}</p>
+            {/* FIX: Mobile Optimization kwa ajili ya Title
+                - md:opacity-0: Inaficha title desktop hadi hover itokee.
+                - group-active:opacity-100: Inaonyesha title picha ikiguswa kwenye simu.
+                - opacity-100 (mobile): Unaweza pia kuamua title ionekane muda wote chini kwenye mobile.
+            */}
+            <div className="absolute inset-0 bg-bakery-crust/40 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+              <p className="text-bakery-cream font-serif text-2xl md:text-3xl italic text-center px-4">
+                {cake.title}
+              </p>
+            </div>
+
+            {/* OPTIONAL: Label ya kudumu kwa mobile pekee chini ya picha */}
+            <div className="md:hidden absolute bottom-4 left-6 z-10">
+               <p className="text-white font-serif italic text-lg shadow-sm">{cake.title}</p>
             </div>
           </motion.div>
         ))}

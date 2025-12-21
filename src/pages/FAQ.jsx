@@ -5,10 +5,12 @@ import { Plus, Minus } from 'lucide-react';
 
 const faqData = [
   { id: 1, question: "How much notice do I need to give for an order?", answer: "We generally require at least 3-4 days notice for standard cakes. For wedding cakes or complex custom designs, we recommend booking at least 1 week in advance to secure your date." },
-  { id: 2, question: "Do you offer delivery?", answer: "Yes! We deliver via safe car courier within Runyenjes. Delivery charges depend on the distance from Runyenjes (approx. KES 300 - 1000). You can also pick up your cake directly from our Bakery." },
+  { id: 2, question: "Do you offer delivery?", answer: "Yes! We deliver via safe car courier within Embu Town. Delivery charges depend on the distance from Embu Town (approx. KES 300 - 1000). You can also pick up your cake directly from our Bakery." },
   { id: 3, question: "What payment methods do you accept?", answer: "We accept M-Pesa (Buy Goods Till) and Bank Transfers. A 50% deposit is required to confirm your order." },
   { id: 4, question: "Do you bake eggless or sugar-free cakes?", answer: "Absolutely. We offer eggless, gluten-free, and sugar-free options upon request. Please mention any dietary restrictions in the order form notes." },
-  { id: 5, question: "Do you offer custom cake designs?", answer: "Absolutely! We specialize in custom cake designs. Whether you have a specific theme or unique design in mind, we can bring your vision to life." }
+  { id: 5, question: "Do you offer custom cake designs?", answer: "Absolutely! We specialize in custom cake designs. Whether you have a specific theme or unique design in mind, we can bring your vision to life." },
+  {id: 6,  question: "Can I order a cake for same-day pickup?", answer: "Same-day pickup is available for our ready-made cakes in the shop. For custom orders, we require at least 48 hours notice. Please call ahead to check availability and place your order."},
+  {id :7,  question: "Can I change or cancel my order?",answer: "Orders can be modified up to 48 hours before the pickup/delivery date. Cancellations made within 48 hours may incur a cancellation fee. We understand plans can change, so please contact us as soon as possible if you need to make changes."}
 ];
 
 export const FAQ = () => {

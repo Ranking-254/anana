@@ -18,11 +18,11 @@ export const Footer = ({ onOpenLegal }) => {
             Visit ANANA-Bakers.
           </motion.h5>
           <div className="space-y-4 font-mono text-[10px] uppercase tracking-[0.2em] leading-loose opacity-60">
-            <p>Runyenjes, Embu</p>
+            <p>Embu,Kenya</p>
             <p>mon—sat: 07:00 — 16:00</p>
             <div className="flex items-center gap-2">
                <Mail size={12} />
-               <span>cakes@hearthstudio.com</span>
+               <span>cakes@ananabackers.com</span>
             </div>
           </div>
         </div>
